@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: task-manager-api
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: task-manager-api
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: harbor.example.com/task-manager/task-manager-api:latest
+          image: task-manager/task-manager-api:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

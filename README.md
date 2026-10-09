@@ -1,6 +1,6 @@
 # Task Manager API
 
-[![CI](https://github.com/<username>/task-manager-api/actions/workflows/ci.yml/badge.svg)](https://github.com/<username>/task-manager-api/actions/workflows/ci.yml)
+[![CI](https://github.com/wangkun0328/task-manager-api/actions/workflows/ci.yml/badge.svg)](https://github.com/wangkun0328/task-manager-api/actions/workflows/ci.yml)
 
 ## 项目简介
 
@@ -101,7 +101,20 @@ curl http://localhost:8080/health
 ### 启动 Minikube
 
 ```bash
-minikube start
+minikube start \
+    --driver=docker \
+    --cpus=4 \
+    --memory=4096m \
+    --cni=flannel \
+    --disk-size=10g \
+    --image-mirror-country='cn' \
+    --image-repository='registry.cn-hangzhou.aliyuncs.com/google_containers'
+```
+
+### 启用 Ingress 插件
+
+```bash
+minikube addons enable ingress
 ```
 
 ### 部署到 Kubernetes
@@ -119,12 +132,12 @@ kubectl get pods -n task-manager
 # 查看所有资源
 kubectl get all -n task-manager
 
-# 通过 Ingress 访问（需启用 ingress 插件）
-minikube addons enable ingress
+# 通过 Ingress 访问
 curl -H "Host: task-manager.local" http://$(minikube ip)/health
+curl -H "Host: task-manager.local" http://$(minikube ip)/tasks
 ```
 
-详见 [k8s/README.md](k8s/README.md) 获取详细部署说明。
+详见 [k8s/README.md](k8s/README.md) 获取详细部署说明及常见问题排查。
 
 ## 运行测试
 
