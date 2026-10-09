@@ -159,3 +159,13 @@ pytest src/tests/ -v --cov=src/ --cov-fail-under=60
 4. **Security Scan**: Trivy 镜像漏洞扫描
 
 触发条件：Push 到 main 分支 或 PR 到 main 分支。
+
+## 截图
+
+### Kubernetes Pod 状态
+
+![Pod Status](screenshots/pods-status.png)
+
+### API 调用响应
+
+![API Response](screenshots/api-response.png)
