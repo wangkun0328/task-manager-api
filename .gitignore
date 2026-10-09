@@ -43,3 +43,4 @@ Thumbs.db
 # Local config overrides
 .env
 .env.local
+minikube-darwin-amd64
