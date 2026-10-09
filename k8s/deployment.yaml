@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ghcr.io/<username>/task-manager-api:latest
+          image: harbor.example.com/task-manager/task-manager-api:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
